@@ -1,4 +1,5 @@
 export default function GameCatalogue() {
+
     return (
         // <!-- Catalogue -->
         <section id="catalog-page">
