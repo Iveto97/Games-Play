@@ -5,16 +5,16 @@ export default function Header() {
       <header>
         {/* <!-- Navigation --> */}
         <h1>
-          <a className="home" href="#">
+          <Link className="home" to="/">
             GamesPlay
-          </a>
+          </Link>
         </h1>
         <nav>
           <Link to="/games">All games</Link>
           {/* <!-- Logged-in users --> */}
           <div id="user">
             <Link to="/game-create">Create Game</Link>
-            <a href="#">Logout</a>
+            <Link href="/logout">Logout</Link>
           </div>
           {/* <!-- Guest users --> */}
           <div id="guest">
