@@ -31,7 +31,10 @@ export default function GameDetails() {
                 ...prevState.comments,
             [newComment._id]: newComment,
             }
-        }))
+        }));
+
+        setUsername('');
+        setComment('');
     };
 
     return (
@@ -60,7 +63,9 @@ export default function GameDetails() {
               ))}
             </ul>
             {/* <!-- Display paragraph: If there are no games in the database --> */}
-            <p className="no-comment">No comments.</p>
+            {Object.keys(game.comments || {}).length === 0
+              ? <p className="no-comment">No comments.</p>
+            : ''}
           </div>
 
           {/* <!-- Edit/Delete buttons ( Only for creator of this game )  --> */}
