@@ -6,17 +6,18 @@ import { useForm } from "../../hooks/useForm";
 export default function Login() {
     const login = useLogin();
     const navigate = useNavigate();
-    const {values, changeHandler, submitHandler} = useForm(
-        {email: '', password: ''},
-        async ({ email, password }) => { 
-            try {
-                login(email, password);
-                navigate('/');
-                
-            } catch (error) {
-                console.log(error.message);
-            }
-})
+    
+    const initialValues =  {email: '', password: ''};
+    const loginHandler =  async ({ email, password }) => { 
+        try {
+            login(email, password);
+            navigate('/');
+            
+        } catch (error) {
+            console.log(error.message);
+        }}
+
+    const {values, changeHandler, submitHandler} = useForm(initialValues, loginHandler);
 
     return (
       // <!-- Login Page ( Only for Guest users ) -->
