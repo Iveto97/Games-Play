@@ -9,7 +9,7 @@ import Register from "./components/register/Register";
 import GameCatalogue from "./components/game-catalogue/GameCatalogue";
 import GameCreate from "./components/game-create/GameCreate";
 import GameDetails from "./components/game-details/GameDetails";
-import { AuthContext } from './contexts/AuthContext';
+import { AuthContext }  from './contexts/AuthContext';
 
 function App() {
 const [authState, setAuthState] = useState({});
