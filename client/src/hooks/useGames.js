@@ -11,3 +11,21 @@ const [games, setGames] = useState([]);
 
     return [games];
 }
+
+export function useGetOneGames(gameId) {
+    const [game, setGame] = useState({});
+
+    useEffect(() => {
+        (
+            async () => {
+               const result = await gamesAPI.getOne(gameId);
+               setGame(result);
+            }
+        )();
+    }, []);
+
+    return[
+        game,
+        setGame
+    ]
+}
