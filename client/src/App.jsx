@@ -16,7 +16,7 @@ function App() {
   //TODO: remove this from App component
 const [authState, setAuthState] = useState({});
 
-const changeAuthSate = (state) => {
+const changeAuthState = (state) => {
   //TODO: validate
 	setAuthState(state);
 }
@@ -26,7 +26,7 @@ const contextData = {
 	email: authState.email,
 	accessToken: authState.accessToken,
 	isAuthenticated: !!authState.email,
-	changeAuthSate,
+	changeAuthState,
 };
 
   return (

@@ -3,10 +3,10 @@ import { useRegister } from "../../hooks/useAuth";
 import { useForm } from "../../hooks/useForm";
 import { useState } from "react";
 
-export default function Register () {
+export default function Register() {
 
-    const [error, setError] = useState('')
-    const register = useRegister;
+    const [error, setError] = useState('');
+    const register = useRegister();
     const navigate = useNavigate();
 
     const initialValues =  {email: '', password: '', 'confirm-password': ''};

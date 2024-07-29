@@ -4,6 +4,6 @@ export const AuthContext = createContext({
     userId: '',
     email: '',
     accessToken: '',
-    inAuthenticated: false,
+    isAuthenticated: false,
     changeAuthState: (authState = {}) => null,
 }) ;
