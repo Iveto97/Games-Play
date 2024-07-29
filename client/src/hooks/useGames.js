@@ -5,8 +5,14 @@ export function useGetAllGames() {
 const [games, setGames] = useState([]);
 
     useEffect(() => {
-        gamesAPI.getAll()
-            .then((result) => setGames(result));
+        (
+            async () => {
+                const result = await gamesAPI.getAll();
+                setGames(result);
+             }
+        )();
+        // gamesAPI.getAll()
+        //     .then((result) => setGames(result));
     }, []);
 
     return [games];
