@@ -1,5 +1,7 @@
 import {Routes, Route} from 'react-router-dom';
 
+import { useState } from 'react';
+
 import Header from "./components/header/Header"
 import Home from "./components/home/Home";
 import Login from "./components/login/Login";
@@ -7,16 +9,30 @@ import Register from "./components/register/Register";
 import GameCatalogue from "./components/game-catalogue/GameCatalogue";
 import GameCreate from "./components/game-create/GameCreate";
 import GameDetails from "./components/game-details/GameDetails";
+import { AuthContext } from './contexts/AuthContext';
 
 function App() {
+const [authState, setAuthState] = useState({});
+
+const changeAuthSate = (state) => {
+	setAuthState(state);
+}
+
+const contextData = {
+	email: authState.email,
+	accessToken: authState.accessToken,
+	isAuthenticated: !!authState.email,
+	changeAuthSate,
+};
 
   return (
-    <div id="box">
-      <Header />
+    <AuthContext.Provider value={contextData}>
+      <div id="box">
+        <Header />
 
-      {/* <!-- Main Content --> */}
+        {/* <!-- Main Content --> */}
         <main id="main-content">
-           <Routes>
+          <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
@@ -24,9 +40,10 @@ function App() {
             <Route path="/games/:gameId/details" element={<GameDetails />} />
 
             <Route path="/game-create" element={<GameCreate />} />
-           </Routes>
+          </Routes>
         </main>
-    </div>
+      </div>
+    </AuthContext.Provider>
   );
 }
 
