@@ -1,14 +1,9 @@
-import { useEffect, useState } from "react";
-import * as gamesAPI from "../../api/games-api";
+
+import { useGetAllGames } from "../../hooks/useGames";
 import GameListItem from "./game-list-item/GameListItem";
 
 export default function GameCatalogue() {
-    const [games, setGames] = useState([]);
-
-    useEffect(() => {
-        gamesAPI.getAll()
-            .then((result) => setGames(result));
-    }, []);
+    const [games] = useGetAllGames([]);
 
     return (
       // <!-- Catalogue -->
@@ -16,9 +11,11 @@ export default function GameCatalogue() {
         <h1>All Games</h1>
         {/* <!-- Display div: with information about every game (if any) --> */}
 
-        {games.length > 0 ? (
+        {games.length > 0 
+        ? (
           games.map((game) => <GameListItem key={game._id} {...game} />)
-        ) : (
+        ) 
+        : (
           <h3 className="no-articles">No articles yet</h3>
         )}
         {/* <!-- Display paragraph: If there is no games  --> */}

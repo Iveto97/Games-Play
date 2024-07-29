@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import * as gamesApi from '../../api/games-api';
+import gamesAPI from '../../api/games-api';
 import commentsApi from '../../api/comments-api';
 
 export default function GameDetails() {
@@ -14,7 +14,7 @@ export default function GameDetails() {
     useEffect(() => {
         (
             async () => {
-               const result = await gamesApi.getOne(gameId);
+               const result = await gamesAPI.getOne(gameId);
                setGame(result);
             }
         )();
