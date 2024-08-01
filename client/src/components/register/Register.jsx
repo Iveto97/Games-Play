@@ -10,10 +10,10 @@ export default function Register() {
     const navigate = useNavigate();
 
     const initialValues =  {email: '', password: '', 'confirm-password': ''};
+
     const registerHandler =  async ( values ) => { 
         if(values.password !== values['confirm-password']) {
             return setError('Password mismatch!');
-            
         }
 
         try {
