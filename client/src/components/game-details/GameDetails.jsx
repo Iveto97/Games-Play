@@ -25,7 +25,7 @@ export default function GameDetails() {
         const newComment = await createComment(gameId, comment);
 
         setComments(oldComments => [...oldComments, newComment]);
-        
+
       } catch (error) {
         console.log(error.message);
       }
@@ -50,7 +50,7 @@ export default function GameDetails() {
           <ul>
             {comments.map(comment => (
               <li key={comment._id} className="comment">
-                <p>username: {comment.text}</p>
+                <p>{comment.author.email}: {comment.text}</p>
               </li>
             ))
             }
