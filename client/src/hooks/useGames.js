@@ -15,7 +15,7 @@ const [games, setGames] = useState([]);
         //     .then((result) => setGames(result));
     }, []);
 
-    return [games];
+    return [games, setGames];
 }
 
 export function useGetOneGames(gameId) {
