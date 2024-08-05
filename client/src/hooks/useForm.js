@@ -17,6 +17,8 @@ export function useForm(initialValues, submitCallback) {
         e.preventDefault();
 
         submitCallback(values);
+        
+        setValues(initialValues);
     }
 
     return {
